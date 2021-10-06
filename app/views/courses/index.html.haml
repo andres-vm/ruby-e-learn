@@ -1,9 +1,13 @@
-%h1 Listing courses
+%h1 
+  Listing courses (
+  = @courses.count
+  )
 
 %table.table
-  %thead
+  %thead.thead-light
     %tr
       %th Title
+      %th Creator
       %th Description
       %th
       %th
@@ -13,6 +17,7 @@
     - @courses.each do |course|
       %tr
         %td= course.title
+        %td= course.user
         %td= course.description
         %td= link_to 'Show', course
         %td= link_to 'Edit', edit_course_path(course)

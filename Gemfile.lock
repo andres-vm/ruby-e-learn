@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: d369a567f96f164cc3664263a3b9673696a3469d
+  branch: master
+  specs:
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -64,6 +72,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (10.3.3.0)
       execjs (~> 2)
+    bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.9.0)
       msgpack (~> 1.0)
@@ -84,6 +93,12 @@ GEM
     childprocess (3.0.0)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    devise (4.8.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     erubi (1.10.0)
     erubis (2.7.0)
     execjs (2.8.1)
@@ -128,6 +143,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.4-x86_64-linux)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     pg (1.2.3)
     popper_js (2.9.3)
     public_suffix (4.0.6)
@@ -172,6 +188,9 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.1.1)
+    responders (3.0.1)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     ruby_parser (3.17.0)
       sexp_processor (~> 4.15, >= 4.15.1)
     rubyzip (2.3.2)
@@ -209,6 +228,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -238,6 +259,8 @@ DEPENDENCIES
   bootstrap (~> 5.0.1)
   byebug
   capybara (>= 3.26)
+  devise
+  faker!
   haml-rails (~> 2.0)
   jbuilder (~> 2.7)
   jquery-rails
