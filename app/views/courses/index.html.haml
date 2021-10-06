@@ -3,25 +3,9 @@
   = @courses.count
   )
 
-%table.table
-  %thead.thead-light
-    %tr
-      %th Title
-      %th Creator
-      %th Description
-      %th
-      %th
-      %th
-
-  %tbody
-    - @courses.each do |course|
-      %tr
-        %td= course.title
-        %td= course.user
-        %td= course.description
-        %td= link_to 'Show', course
-        %td= link_to 'Edit', edit_course_path(course)
-        %td= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }
+.card-columns
+  - @courses.each do |course|
+    = render 'courses/course', course: course
 
 %br
 
