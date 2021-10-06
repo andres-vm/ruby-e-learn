@@ -5,7 +5,7 @@
   .p-4
   .form-inline.my-2.my-lg-0
     = form_tag(courses_path, method: :get) do
-      .input-group
+      .input-group.mr-right
         = text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Search", class: 'form-control-sm'
         %span.input-group-append
           %button.btn.btn-primary.btn-sm{:type => "submit"}
