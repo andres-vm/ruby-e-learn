@@ -5,6 +5,15 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
+  
+  config.action_mailer.smtp_settings = {
+    port: 587,
+    address: 'email-smtp.us-east-2.amazonaws.com',
+    user_name: 'AKIAZZVJ2ZIHOSUFVLWF',
+    password: 'BA+06HXCZewDkeziS1luwD5jb03sH/UGKqSEkfyvl9eh',
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
