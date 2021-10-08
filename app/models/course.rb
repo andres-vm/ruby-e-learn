@@ -17,9 +17,12 @@ class Course < ApplicationRecord
         LANGUAGES.map { |language| [language, language] }
       end
     
-      LEVELS = [:"Beginner", :"Intermediate", :"Advanced"]
+    LEVELS = [:"Beginner", :"Intermediate", :"Advanced"]
       def self.levels
         LEVELS.map { |level| [level, level] }
-  end
+      end
+      
+     include PublicActivity::Model
+        tracked owner: Proc.new{ |controller, model| controller.current_user }
 
 end
