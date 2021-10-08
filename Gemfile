@@ -38,6 +38,7 @@ gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 gem "sendgrid-ruby"
 gem 'ransack'
 gem 'public_activity'
+gem 'rolify'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
