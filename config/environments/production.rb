@@ -6,13 +6,14 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   
-  config.action_mailer.smtp_settings = {
-    port: 587,
-    address: 'email-smtp.us-east-2.amazonaws.com',
-    user_name: 'AKIAZZVJ2ZIHOSUFVLWF',
-    password: 'BA+06HXCZewDkeziS1luwD5jb03sH/UGKqSEkfyvl9eh',
-    authentication: :plain,
-    enable_starttls_auto: true
+  ActionMailer::Base.smtp_settings = {
+    :address => 'smtp.sendgrid.net', 
+    :port => '587', 
+    :authentication => :plain, 
+    :user_name => ENV['SENDGRID_USERNAME'], 
+    :password => ENV['SENDGRID_PASSWORD'], 
+    :domain => 'heroku.com', 
+    :enable_starttls_auto => true 
   }
   # Settings specified here will take precedence over those in config/application.rb.
 

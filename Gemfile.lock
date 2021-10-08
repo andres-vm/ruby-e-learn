@@ -193,6 +193,7 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    ruby_http_client (3.5.2)
     ruby_parser (3.17.0)
       sexp_processor (~> 4.15, >= 4.15.1)
     rubyzip (2.3.2)
@@ -210,6 +211,8 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    sendgrid-ruby (6.5.1)
+      ruby_http_client (~> 3.4)
     sexp_processor (4.15.3)
     simple_form (5.1.0)
       actionpack (>= 5.2)
@@ -274,6 +277,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   sass-rails (>= 6)
   selenium-webdriver
+  sendgrid-ruby
   simple_form
   spring
   turbolinks (~> 5)
