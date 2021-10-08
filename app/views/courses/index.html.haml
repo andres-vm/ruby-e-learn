@@ -14,8 +14,11 @@
       = f.label :language
       = f.select :language_cont, Course.languages, include_blank: true
       /= f.search_field :level_cont, placeholder: 'Level', class: 'form-control form-control-sm'
+      .row
       = f.label :level
+      .row
       = f.select :level_cont, Course.levels, include_blank: true
+      .row
       = f.label :price
       = f.search_field :price_eq, placeholder: 'Price', class: 'form-control form-control-sm'
       = f.label :teacher
