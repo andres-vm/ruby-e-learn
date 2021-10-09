@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  skip_before_action :authenticate_user!, :only => [:landing_page]
+  skip_before_action :authenticate_user!, :only => [:landing_page, :privacy_policy]
   
   def landing_page
     puts "SENDGRID_USERNAME: #{ENV['SENDGRID_USERNAME']}"
