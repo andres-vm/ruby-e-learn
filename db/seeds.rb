@@ -10,7 +10,7 @@
     Course.create!([{
         title: Faker::Educator.course_name,
         description: Faker::TvShows::GameOfThrones.quote,
-        user_id: User.first.id,
+        user_id: User.find(2).id,
         short_description: Faker::Quote.famous_last_words,
         language: Faker::ProgrammingLanguage.name,
         level: 'Beginner',
