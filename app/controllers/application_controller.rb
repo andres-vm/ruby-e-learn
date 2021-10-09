@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
     include Pundit
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
     
+    after_action :user_activity
     before_action :authenticate_user!
     before_action :set_global_variables, if: :user_signed_in?
     include PublicActivity::StoreController #save current_user using gem public_activity
@@ -17,6 +18,10 @@ class ApplicationController < ActionController::Base
       def user_not_authorized #pundit
         flash[:alert] = "You are not authorized to perform this action."
         redirect_to(request.referrer || root_path)
+      end
+    
+      def user_activity
+        current_user.try :touch
       end
     
 end
