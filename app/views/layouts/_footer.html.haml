@@ -1,5 +1,10 @@
 #footer
-  %div
-  .pull-right
-    Developed by Andrés Valiño
-    © #{Time.now.year.to_s}
+  %div.row
+    .col-8
+      Developed by Andrés Valiño
+      © #{Time.now.year.to_s}
+    .col-4
+      .float-right
+        = link_to privacy_policy_path, class: 'nav-link' do
+          .fa.fa-user-secret
+          Privacy Policy
