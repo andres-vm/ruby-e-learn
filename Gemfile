@@ -40,6 +40,7 @@ gem 'ransack'
 gem 'public_activity'
 gem 'rolify'
 gem "pundit"
+gem 'exception_notification'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
