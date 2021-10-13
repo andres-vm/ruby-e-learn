@@ -14,7 +14,12 @@ class User < ApplicationRecord
     self.email.split(/@/).first
   end
   
+  def buy_course(course)
+    self.enrollments.create(course: course, price: course.price)
+  end
+  
   has_many :courses
+  has_many :enrollments
 
   after_create :assign_default_role
   extend FriendlyId
