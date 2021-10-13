@@ -41,7 +41,13 @@
         %td= user.last_sign_in_at
         %td= user.current_sign_in_ip
         %td= user.last_sign_in_ip
-        %td= user.confirmed?
+        %td
+          - if user.confirmed?
+            Yes
+            .fas.fa-user-check.text-success
+          -else
+            No
+            .fas.fa-user-times.text-danger
         %td
           - user.roles.each do |role|
             .badge.badge-info
