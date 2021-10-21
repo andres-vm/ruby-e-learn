@@ -5,6 +5,7 @@ class Course < ApplicationRecord
     
     has_many :lessons, dependent: :destroy
     has_many :enrollments
+    validates :title, uniqueness: true
     
     validates :title, :short_description, :language, :price, :level,  presence: true
     validates :description, presence: true, length: { :minimum => 5 }
