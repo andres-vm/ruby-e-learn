@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   
-  resources :enrollments
+  resources :enrollments do
+    get :my_students, on: :collection
+  end
   devise_for :users
   
   resources :courses do
+    get :purchased, :pending_review, :created, on: :collection
     resources :lessons
     resources :enrollments, only: [:new, :create]
   end
@@ -12,6 +15,6 @@ Rails.application.routes.draw do
   root 'static_pages#landing_page'
   
   get 'privacy_policy', to: 'static_pages#privacy_policy'
-  get 'static_pages/activity'
+  get 'activity', to: 'static_pages#activity'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
