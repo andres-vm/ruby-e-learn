@@ -20,7 +20,8 @@ class User < ApplicationRecord
   
   has_many :courses
   has_many :enrollments
-
+  has_many :user_lessons
+  
   after_create :assign_default_role
   extend FriendlyId
   friendly_id :email, use: :slugged
@@ -41,6 +42,13 @@ class User < ApplicationRecord
   def online?
     updated_at > 2.minutes.ago
   end
+
+  def view_lesson(lesson)
+    unless self.user_lessons.where(lesson: lesson).any?
+      self.user_lessons.create(lesson: lesson)
+    end
+  end
+
 
   private
   
