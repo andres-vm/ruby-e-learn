@@ -1,3 +1,9 @@
+- content_for :title do
+  E-Learn 
+  \| 
+  Analytics
+
+
 %h4.text-center
   New users created per day
 /= line_chart @users.group_by_day(:created_at).count

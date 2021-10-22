@@ -44,6 +44,7 @@ gem 'exception_notification'
 gem 'pagy'
 gem "chartkick"
 gem 'groupdate'
+gem 'rails-erd', group: :development #sudo apt-get install graphviz; bundle exec erd
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
