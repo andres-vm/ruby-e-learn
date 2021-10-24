@@ -61,19 +61,19 @@
           Analytics
         - if policy(course).destroy?
           = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
-      - if policy(course).admin_or_owner?
-        .card-footer
-          - if course.published?
-            .badge.badge-success published
-          - else
-            .badge.badge-danger unpublished
-          - if course.approved?
-            .badge.badge-success approved
-          - else
-            .badge.badge-danger unapproved
-      - if policy(course).approve?
-        .card-footer
-          - if course.approved
-            = link_to 'unapprove', unapprove_course_path(course), method: :patch, class: 'btn btn-sm btn-danger'
-          - else
-            = link_to 'approve', approve_course_path(course), method: :patch, class: 'btn btn-sm btn-success'
+    - if policy(course).admin_or_owner?
+      .card-footer
+        - if course.published?
+          .badge.badge-success published
+        - else
+          .badge.badge-danger unpublished
+        - if course.approved?
+          .badge.badge-success approved
+        - else
+          .badge.badge-danger unapproved
+    - if policy(course).approve?
+      .card-footer
+        - if course.approved
+          = link_to 'unapprove', unapprove_course_path(course), method: :patch, class: 'btn btn-sm btn-danger'
+        - else
+          = link_to 'approve', approve_course_path(course), method: :patch, class: 'btn btn-sm btn-success'
