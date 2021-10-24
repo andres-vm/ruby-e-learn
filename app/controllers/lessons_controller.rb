@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :set_lesson, only: [:show, :edit, :update, :destroy]
+  before_action :set_lesson, only: [:show, :edit, :update, :destroy, :delete_video]
 
   def index
     @lessons = Lesson.all
@@ -66,6 +66,13 @@ class LessonsController < ApplicationController
     render body: nil
   end
   
+  def delete_video
+    authorize @lesson, :edit?
+    @lesson.video.purge
+    @lesson.video_thumbnail.purge
+    redirect_to edit_course_lesson_path(@course, @lesson), notice: 'Video successfully deleted!'
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lesson
@@ -75,6 +82,6 @@ class LessonsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lesson_params
-      params.require(:lesson).permit(:title, :content, :row_order_position)
+      params.require(:lesson).permit(:title, :content, :row_order_position, :video, :video_thumbnail)
     end
 end

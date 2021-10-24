@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     get :my_students, on: :collection
   end
   devise_for :users
-  
+  resources :youtube, only: :show
   resources :courses do
     get :purchased, :pending_review, :created, :unapproved, on: :collection
     member do
@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     end
     resources :lessons do
       put :sort
+      member do
+        delete :delete_video
+      end
     end
     resources :enrollments, only: [:new, :create]
   end
