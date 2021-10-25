@@ -50,6 +50,7 @@ gem "aws-sdk-s3", require: false #save images and files in production
 gem 'active_storage_validations' #validate image and file uploads
 gem "aws-sdk-s3", require: false
 gem 'image_processing' #sudo apt install imagemagick
+gem 'recaptcha'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
