@@ -17,9 +17,9 @@
 
 // File size
  window.addEventListener("trix-file-accept", function(event) {
-   const maxFileSize = 4000 * 4000 // 1MB 
+   const maxFileSize = 1024 * 1024 * 45 // 45MB 
    if (event.file.size > maxFileSize) {
      event.preventDefault()
-     alert("Only support attachment files upto size 16MB!")
+     alert("Only support attachment files upto size 45MB!")
    }
  })
