@@ -50,6 +50,10 @@ $(document).on('turbolinks:load', function(){
     }
   });
   
+  $("video").bind("contextmenu",function(){
+      return false;
+  });
+  
   let videoPlayer = videojs(document.getElementById('my-video'), {
     controls: true,
     playbackRates: [0.5, 1, 1.5],
@@ -63,6 +67,7 @@ $(document).on('turbolinks:load', function(){
   })
   videoPlayer.addClass('video-js')
   videoPlayer.addClass('vjs-big-play-centered')
+
 
 
 });
