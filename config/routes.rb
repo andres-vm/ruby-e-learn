@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     get :my_students, on: :collection
   end
   #devise_for :users
-  devise_for :users, :controllers => { registrations: 'users/registrations'}
+  devise_for :users, :controllers => { registrations: 'users/registrations', 
+                                       omniauth_callbacks: 'users/omniauth_callbacks'}
   
   resources :youtube, only: :show
   resources :courses do
