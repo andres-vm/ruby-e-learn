@@ -27,6 +27,7 @@ import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
 
 import "../trix-editor-overrides" 
+require("selectize")
 
 $(document).on('turbolinks:load', function(){
   $('.lesson-sortable').sortable({
@@ -52,6 +53,22 @@ $(document).on('turbolinks:load', function(){
   
   $("video").bind("contextmenu",function(){
       return false;
+  });
+  
+  if ($('.selectize')){
+      $('.selectize').selectize({
+          sortField: 'text'
+      });
+  }
+  
+  $(".selectize-tags").selectize({
+    create: function(input, callback) {
+      $.post('/tags.json', { tag: { name: input } })
+        .done(function(response){
+          console.log(response)
+          callback({value: response.id, text: response.name });
+        })
+    }
   });
   
   let videoPlayer = videojs(document.getElementById('my-video'), {

@@ -1,14 +1,24 @@
 @import "bootstrap";
 @import "./actiontext.scss";
+@import "selectize/dist/css/selectize";
+@import "selectize/dist/css/selectize.default";
 
 
 body { background: #2a4054 !important; color: #ebedf0 !important; }
-.card, .jumbotron, .list-group-item { color: #2a4054; }
+.card, .jumbotron, .list-group-item { color: #2a4054 !important; }
 .purple-background { background-color: #563d7c; }
 .table { background: white; }
 .btn-custompurple{ background-color: #563d7c !important; color: white !important; }
 .element {color: green;}
-
+.home-image{
+    background-image: url("home-photo.jpg") !important;
+    height: auto; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white !important;
+}
 //hide simple_form checkmarks
 .form-control.is-invalid{ background-image: none; }
 .form-control.is-valid{ background-image: none; }
