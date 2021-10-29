@@ -56,7 +56,8 @@ gem "omniauth-rails_csrf_protection"
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-facebook'
 gem 'wicked_pdf' #PDF for Ruby on Rails
-gem 'wkhtmltopdf-binary' #PDF dependancy
+gem 'wkhtmltopdf-binary', group: :development
+gem 'wkhtmltopdf-heroku', group: :production
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
