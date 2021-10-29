@@ -10,7 +10,8 @@ class Course < ApplicationRecord
     has_many :tags, through: :course_tags
     has_one_attached :avatar
     #validates :avatar, attached: true, 
-    validates :avatar, presence: true, 
+    validates :avatar, presence: true, on: :update
+    validates :avatar,  
       content_type: ['image/png', 'image/jpg', 'image/jpeg'], 
       size: { less_than: 500.kilobytes , message: 'size should be under 500 kilobytes' }
     validates :title, uniqueness: true

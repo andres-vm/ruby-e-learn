@@ -28,6 +28,10 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :email, use: :slugged
   
+  after_create do
+    UserMailer.new_user(self).deliver_later
+  end
+  
   def assign_default_role
     if User.count == 1
       self.add_role(:admin) if self.roles.blank?

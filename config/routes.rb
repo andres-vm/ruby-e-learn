@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   
   resources :youtube, only: :show
   resources :tags, only: [:create, :index, :destroy]
-  resources :courses do
+  resources :courses, except: [:edit] do
     get :purchased, :pending_review, :created, :unapproved, on: :collection
     member do
       get :analytics
@@ -28,7 +28,9 @@ Rails.application.routes.draw do
     end
     resources :enrollments, only: [:new, :create] do
     end
+    resources :course_wizard, controller: 'courses/course_wizard'
   end
+  
   
   resources :users, only: [:index, :edit, :show, :update]
   root 'static_pages#landing_page'
