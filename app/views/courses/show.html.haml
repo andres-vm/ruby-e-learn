@@ -28,6 +28,9 @@
       .row
       .fa.fa-signal
       = @course.level
+      .row
+      .fa.fa-file-pdf
+      Certificate of Completion
       %hr
       = @course.description
 
@@ -39,6 +42,7 @@
       .float-right
         .fa.fa-spinner
         = number_to_percentage(@course.progress(current_user), precision: 0)
+        /= certificate_button(@course)
     %ul.list-group
       - @lessons.each do |lesson|
         %li.list-group-item
