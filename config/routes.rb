@@ -8,7 +8,7 @@ Rails.application.routes.draw do
                                        omniauth_callbacks: 'users/omniauth_callbacks'}
   
   resources :youtube, only: :show
-  resources :tags, only: :create
+  resources :tags, only: [:create, :index, :destroy]
   resources :courses do
     get :purchased, :pending_review, :created, :unapproved, on: :collection
     member do

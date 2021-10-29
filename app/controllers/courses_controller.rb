@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
     @ransack_path = courses_path
     #@courses = @ransack_courses.result.includes(:user)
     @pagy, @courses = pagy(@ransack_courses.result.includes(:user, :course_tags, :course_tags => :tag))
-    @tags = Tag.all
+    @tags = Tag.all.where.not(course_tags_count: 0).order(course_tags_count: :desc)
   end
 
   # GET /courses/1 or /courses/1.json
@@ -84,7 +84,7 @@ class CoursesController < ApplicationController
     authorize @course
     if @course.destroy
       respond_to do |format|
-        format.html { redirect_to teaching_courses_path, notice: 'Course was successfully destroyed.' }
+        format.html { redirect_to root_path, notice: 'Course was successfully destroyed.' }
         format.json { head :no_content }
       end
     else
@@ -96,7 +96,7 @@ class CoursesController < ApplicationController
     @ransack_path = purchased_courses_path
     @ransack_courses = Course.joins(:enrollments).where(enrollments: {user: current_user}).ransack(params[:courses_search], search_key: :courses_search)
     @pagy, @courses = pagy(@ransack_courses.result.includes(:user, :course_tags, :course_tags => :tag))
-    @tags = Tag.all
+    @tags = Tag.all.where.not(course_tags_count: 0).order(course_tags_count: :desc)
     render 'index'
   end
 
@@ -104,7 +104,7 @@ class CoursesController < ApplicationController
     @ransack_path = pending_review_courses_path
     @ransack_courses = Course.joins(:enrollments).merge(Enrollment.pending_review.where(user: current_user)).ransack(params[:courses_search], search_key: :courses_search)
     @pagy, @courses = pagy(@ransack_courses.result.includes(:user, :course_tags, :course_tags => :tag))
-    @tags = Tag.all
+    @tags = Tag.all.where.not(course_tags_count: 0).order(course_tags_count: :desc)
     render 'index'
   end
 
@@ -112,7 +112,7 @@ class CoursesController < ApplicationController
     @ransack_path = created_courses_path
     @ransack_courses = Course.where(user: current_user).ransack(params[:courses_search], search_key: :courses_search)
     @pagy, @courses = pagy(@ransack_courses.result.includes(:user, :course_tags, :course_tags => :tag))
-    @tags = Tag.all
+    @tags = Tag.all.where.not(course_tags_count: 0).order(course_tags_count: :desc)
     render 'index'
   end
 
@@ -120,7 +120,7 @@ class CoursesController < ApplicationController
     @ransack_path = unapproved_courses_path
     @ransack_courses = Course.unapproved.ransack(params[:courses_search], search_key: :courses_search)
     @pagy, @courses = pagy(@ransack_courses.result.includes(:user, :course_tags, :course_tags => :tag))
-    @tags = Tag.all
+    @tags = Tag.all.where.not(course_tags_count: 0).order(course_tags_count: :desc)
     render 'index'
   end
 
