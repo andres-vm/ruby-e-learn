@@ -28,6 +28,7 @@ import 'video.js/dist/video-js.css'
 
 import "../trix-editor-overrides" 
 require("selectize")
+import "cocoon-js";
 
 $(document).on('turbolinks:load', function(){
   $('.lesson-sortable').sortable({
