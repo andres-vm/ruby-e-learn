@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   
   resources :enrollments do
     get :my_students, on: :collection
+    member do
+        get :certificate
+      end
   end
   #devise_for :users
   devise_for :users, :controllers => { registrations: 'users/registrations', 
@@ -23,7 +26,8 @@ Rails.application.routes.draw do
         delete :delete_video
       end
     end
-    resources :enrollments, only: [:new, :create]
+    resources :enrollments, only: [:new, :create] do
+    end
   end
   
   resources :users, only: [:index, :edit, :show, :update]
